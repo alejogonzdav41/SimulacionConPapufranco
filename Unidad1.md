@@ -21,7 +21,7 @@ Mi compañero Miguel Valencia me ha ayudado mucho, me enseñó como dirigir el p
 
 ***Modifica el código de la caminata aleatoria para que utilice una distribución no uniforme, favoreciendo el movimiento hacia la derecha.***
 
-´´´
+```
 // The Nature of Code
 // Daniel Shiffman
 // http://natureofcode.com
@@ -68,4 +68,4 @@ class Walker {
   }
 }
 
-´´´
+```
