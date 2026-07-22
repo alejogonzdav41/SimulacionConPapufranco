@@ -174,3 +174,9 @@ function draw() {
 ```
 
 Decidí representar el ruido Perlin con un cuadrado que cambia de posición y de color de forma suave. A diferencia de usar números completamente aleatorios, el ruido Perlin hace que los cambios sean continuos, por lo que el movimiento se ve más natural y agradable. Esperaba que el cuadrado recorriera el lienzo sin hacer movimientos bruscos y que los colores cambiaran poco a poco.
+
+### Actividad 07
+**Reto de diseño: Navegar la incertidumbre**
+
+En un primer momento habia pensado en dos ideas: Un volcan que erupciona y tiene una poblacion abajo con la que se podía interactuar y unas olas del mar que estaban dispersas pero que al tocarlas bajaban todas. Luego de hablar con Juanferfranco me dí cuenta de cual era el proposito real: no acoplar el entorno a aquello que me parece cómodo o me gusta, si no brindar un producto o una solución a una necesidad.
+Con eso en mente decidí investigar sobre algunas ferias de ciencia que podría haber en la ciudad y encontré "Fotosíntesis" un festival de arte, ciencia y tecnologías que se acoplaba a la idea de "feria de ciencia y creatividad" por lo que ofrece.
