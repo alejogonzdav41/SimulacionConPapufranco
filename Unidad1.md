@@ -69,3 +69,108 @@ class Walker {
 }
 
 ```
+### Actividad 4
+
+<img width="1856" height="656" alt="image" src="https://github.com/user-attachments/assets/faac0c1a-7cd6-4c79-bd71-61ddeffca6dc" />
+
+```
+function setup() {
+  createCanvas(1000, 1000);
+}
+
+function draw() {
+  background(220);
+}
+
+function draw() {
+  //{!1} A normal distribution with mean 320 and standard deviation 60
+  let x = randomGaussian(320, 200);
+  noStroke();
+  fill(20, 5);
+  square(x, 20, 100);
+}
+```
+
+### Actividad 5
+
+<img width="885" height="748" alt="image" src="https://github.com/user-attachments/assets/40a4ef8f-80d9-4ebb-91ce-a0326bd7debe" />
+
+```
+let x;
+let y;
+
+function setup() {
+  createCanvas(1000, 1000);
+  background(220);
+
+  x = width / 2;
+  y = height / 2;
+
+  rectMode(CENTER);
+}
+
+function draw() {
+
+  let paso;
+
+  if (random(1) < 0.95) {
+    paso = randomGaussian(0, 5);
+  }
+
+  else {
+    paso = randomGaussian(0, 120);
+  }
+
+  let angulo = random(TWO_PI);
+
+  x += cos(angulo) * paso;
+  y += sin(angulo) * paso;
+
+  x = constrain(x, 0, width);
+  y = constrain(y, 0, height);
+
+  fill(random(255), random(255), random(255), 120);
+  noStroke();
+
+  square(x, y, 12);
+}
+```
+
+Usé la técnica de Lévy Flight porque permite que el punto haga la mayoría de sus movimientos cortos y, en pocas ocasiones, realice un salto mucho más grande. Esto hace que el recorrido sea más natural y menos repetitivo. Esperaba que el punto recorriera diferentes partes del lienzo sin quedarse siempre en el mismo lugar.
+
+### Actividad 6
+
+<img width="900" height="790" alt="image" src="https://github.com/user-attachments/assets/401b40e0-d940-4bf7-8767-a480fb53e6c7" />
+
+```
+let tx = 0;
+let ty = 1000;
+let tc = 2000;
+
+function setup() {
+  createCanvas(1000, 1000);
+  background(15);
+  rectMode(CENTER);
+  noStroke();
+}
+
+function draw() {
+
+  let x = noise(tx) * width;
+  let y = noise(ty) * height;
+
+  let r = noise(tc) * 255;
+  let g = noise(tc + 100) * 255;
+  let b = noise(tc + 200) * 255;
+
+  fill(r, g, b, 80);
+
+  square(x, y, 30);
+
+  tx += 0.01;
+  ty += 0.01;
+  tc += 0.02;
+}
+```
+
+Decidí representar el ruido Perlin con un cuadrado que cambia de posición y de color de forma suave. A diferencia de usar números completamente aleatorios, el ruido Perlin hace que los cambios sean continuos, por lo que el movimiento se ve más natural y agradable. Esperaba que el cuadrado recorriera el lienzo sin hacer movimientos bruscos y que los colores cambiaran poco a poco.
