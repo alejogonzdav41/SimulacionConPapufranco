@@ -480,6 +480,291 @@ class Plant {
 }
 ```
 
+*una versión en la que si una llegaban todas la seguian*
+
+<img width="458" height="786" alt="image" src="https://github.com/user-attachments/assets/f4e0c7b8-b5f7-425f-9c02-19dcaaa629d8" />
+
+```
+let molecules = [];
+let plants = [];
+let phase = 0;
+let bloomTimer = 0;
+let sunPos;
+let lastMouseTime = 0;
+
+function setup() {
+  calcularCanvas916();
+  iniciarSistema();
+}
+
+function windowResized() {
+  calcularCanvas916();
+  sunPos = createVector(width / 2, height * 0.15);
+}
+
+function calcularCanvas916() {
+  let w = windowWidth;
+  let h = windowHeight;
+  if (w / h > 9 / 16) {
+    w = h * (9 / 16);
+  } else {
+    h = w * (16 / 9);
+  }
+  createCanvas(w, h);
+}
+
+function iniciarSistema() {
+  molecules = [];
+  plants = [];
+  phase = 0;
+  sunPos = createVector(width / 2, height * 0.15);
+
+  for (let i = 1; i <= 3; i++) {
+    plants.push(new Plant((width / 4) * i, height - (height * 0.08)));
+  }
+}
+
+function mouseMoved() {
+  lastMouseTime = millis();
+}
+
+function draw() {
+  background(20, 50, 100);
+
+  let isInteracting = (millis() - lastMouseTime < 500) && mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height;
+
+  dibujarSol();
+  
+  if (phase === 0) {
+    if (frameCount % 4 === 0) {
+      molecules.push(new Molecule(sunPos.x, sunPos.y));
+    }
+    
+    let maxAltura = 0;
+
+    for (let p of plants) {
+      p.grow();
+      p.display();
+      let alturaActual = height - p.head.y;
+      if (alturaActual > maxAltura) maxAltura = alturaActual;
+    }
+
+    for (let i = molecules.length - 1; i >= 0; i--) {
+      let m = molecules[i];
+      m.applyBehaviors(isInteracting);
+      m.update(isInteracting);
+      m.checkEdges();
+      m.display();
+
+      for (let p of plants) {
+        if (dist(m.pos.x, m.pos.y, p.head.x, p.head.y) < 30) {
+          p.boost += 40; // Crecimiento acelerado
+          molecules.splice(i, 1);
+          break;
+        }
+      }
+    }
+    if (maxAltura > height * 0.6) {
+      phase = 1;
+    }
+    
+  } else if (phase === 1) {
+    let allAtSun = true;
+    for (let p of plants) {
+      p.ascend(sunPos);
+      p.display();
+      if (!p.atSun) allAtSun = false;
+    }
+    
+    if (allAtSun) {
+      phase = 2;
+      bloomTimer = millis();
+    }
+    
+  } else if (phase === 2) {
+    for (let p of plants) {
+      p.display();
+      p.displayFlower();
+    }
+
+    if (millis() - bloomTimer > 5000) {
+      iniciarSistema();
+    }
+  }
+  
+  dibujarCesped();
+}
+
+function dibujarSol() {
+  push();
+  noStroke();
+  fill(255, 230, 100, 80);
+  circle(sunPos.x, sunPos.y, width * 0.3);
+  fill(255, 220, 50, 150);
+  circle(sunPos.x, sunPos.y, width * 0.2);
+  fill(255, 250, 200);
+  circle(sunPos.x, sunPos.y, width * 0.12);
+  pop();
+}
+
+function dibujarCesped() {
+  push();
+  noStroke();
+  let baseGrassY = height - (height * 0.08);
+  fill(30, 100, 40);
+  beginShape();
+  vertex(0, height);
+  vertex(0, baseGrassY);
+  for (let x = 0; x <= width; x += 10) {
+    let y = baseGrassY - noise(x * 0.02) * 20;
+    vertex(x, y);
+  }
+  vertex(width, height);
+  endShape(CLOSE);
+  pop();
+}
+
+class Molecule {
+  constructor(x, y) {
+    this.pos = createVector(x, y);
+    this.vel = p5.Vector.random2D();
+    this.acc = createVector(0, 0);
+    this.noiseOffset = random(1000);
+  }
+
+  applyBehaviors(isInteracting) {
+
+    if (isInteracting) {
+      let mouse = createVector(mouseX, mouseY);
+      let attraction = p5.Vector.sub(mouse, this.pos);
+      attraction.setMag(0.6); 
+      this.acc.add(attraction);
+
+      if (random() < 0.05) {
+        this.vel = p5.Vector.random2D().mult(random(15, 25));
+      }
+    } else {
+      let angle = noise(this.pos.x * 0.01, this.pos.y * 0.01, this.noiseOffset) * TWO_PI * 2;
+      let tendencyForce = p5.Vector.fromAngle(angle).mult(0.04);
+      let gravity = createVector(0, 0.03); // Ligera caída
+      
+      this.acc.add(tendencyForce);
+      this.acc.add(gravity);
+
+      if (random() < 0.005) {
+        this.vel = p5.Vector.random2D().mult(random(8, 15));
+      }
+    }
+  }
+
+  update(isInteracting) {
+    this.vel.add(this.acc);
+
+    let meanSpeed = isInteracting ? 6.0 : 2.5; 
+    let speedLimit = abs(randomGaussian(meanSpeed, 1.0));
+    
+    this.vel.limit(speedLimit);
+    this.pos.add(this.vel);
+    this.acc.mult(0);
+    this.noiseOffset += 0.02;
+  }
+
+  checkEdges() {
+    if (this.pos.x < 0) { this.pos.x = 0; this.vel.x *= -1; }
+    if (this.pos.x > width) { this.pos.x = width; this.vel.x *= -1; }
+    if (this.pos.y < 0) { this.pos.y = 0; this.vel.y *= -1; }
+    if (this.pos.y > height) { this.pos.y = height; this.vel.y *= -1; }
+  }
+
+  display() {
+    push();
+    noStroke();
+    fill(200, 240, 255, 200);
+    circle(this.pos.x, this.pos.y, 6);
+    pop();
+  }
+}
+
+class Plant {
+  constructor(x, y) {
+    this.head = createVector(x, y);
+    this.segments = [this.head.copy()];
+    this.boost = 0;
+    this.xoff = random(1000);
+    this.atSun = false;
+    this.flowerColor = color(random(150, 255), random(100, 200), random(150, 255));
+  }
+
+  grow() {
+    let growthRate = abs(randomGaussian(0.4, 0.1));
+    
+    if (this.boost > 0) {
+      growthRate += 2.0;
+      this.boost--;
+    }
+
+    let angle = -PI/2 + (noise(this.xoff) - 0.5) * 1.5;
+    let step = p5.Vector.fromAngle(angle).mult(growthRate);
+    
+    this.head.add(step);
+
+    this.segments.push(this.head.copy());
+    this.xoff += 0.05;
+  }
+
+  ascend(target) {
+    if (!this.atSun) {
+      let dir = p5.Vector.sub(target, this.head);
+      let distToSun = dir.mag();
+      
+      if (distToSun > width * 0.1) {
+        dir.setMag(4); // Velocidad de estiramiento
+        this.head.add(dir);
+
+        this.segments.push(this.head.copy());
+      } else {
+        this.atSun = true;
+      }
+    }
+  }
+
+  display() {
+    push();
+    stroke(80, 180, 80);
+    strokeWeight(width * 0.012);
+    noFill();
+
+    beginShape();
+    for (let v of this.segments) {
+      vertex(v.x, v.y);
+    }
+    endShape();
+
+    fill(120, 220, 120);
+    noStroke();
+    circle(this.head.x, this.head.y, width * 0.03);
+    pop();
+  }
+
+  displayFlower() {
+    push();
+    translate(this.head.x, this.head.y);
+    noStroke();
+    
+    fill(this.flowerColor);
+    let petalSize = width * 0.06;
+    for (let i = 0; i < 8; i++) {
+      rotate(PI / 4);
+      ellipse(petalSize * 0.6, 0, petalSize, petalSize * 0.4);
+    }
+    
+    fill(255, 204, 0);
+    circle(0, 0, petalSize * 0.5);
+    pop();
+  }
+}
+```
+
 Y finalmente le di unos toques finales con la ayuda de Claude le di un arreglo visula.
 
 <img width="476" height="816" alt="image" src="https://github.com/user-attachments/assets/8d7f09a1-7cda-480b-b7af-b327abcbe067" />
