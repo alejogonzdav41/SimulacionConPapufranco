@@ -1204,7 +1204,7 @@ Excepción: Le puse una probabilidad súper bajita (tipo 0.004) de que una molé
 
 Influencia: Cuando uno mueve el mouse, no es solo que las bolitas sigan al cursor y ya. Lo que en verdad pasa es que se "hackean" las matemáticas del código: la probabilidad de que den esos saltos locos sube de 0.4% a 6%, y el promedio de la velocidad de las moléculas pasa de 2.8 a 7.0. Por este medio se nota la interacción del usuario.
 
-Con esto veo que cumple pero la parte de Probabilidad no me termina de convencer, pero diría que se ve antes de inicar y en los segundos antes de que se repita el ciclo.
+Con esto veo que cumple pero la parte de Probabilidad no me termina de convencer, pero diría que se ve antes de inicar y en los segundos antes de que se repita el ciclo porque la particula elige una direccion al azar.
 
 ### Criterio
 
