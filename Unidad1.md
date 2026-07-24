@@ -768,7 +768,8 @@ class Plant {
 Y finalmente le di unos toques finales con la ayuda de Claude le di un arreglo visula.
 
 <img width="476" height="816" alt="image" src="https://github.com/user-attachments/assets/8d7f09a1-7cda-480b-b7af-b327abcbe067" />
-
+<a name=¨papuEvidencia1¨> </a>
+<a name=¨papuEvidencia4¨> </a>
 ```
 let molecules = [];
 let plants = [];
@@ -1204,14 +1205,12 @@ Con esto veo que cumple pero la parte de Probabilidad no me termina de convencer
 
 ### Criterio
 
-Encargo completo: interpreto los cinco momentos dentro de un mismo sistema visual. Cumple.
-
-Simulación con intención: utilizo al menos tres conceptos de la unidad para comunicar las ideas del encargo. Cumple.
-
-Interacción significativa: la interacción modifica el comportamiento o las probabilidades del sistema, que también funciona sin intervención. Cumple.
-
-Prototipo funcional: la experiencia puede ejecutarse y recorrerse completa sin errores que impidan comprenderla. Cumple.
-
-Proceso documentado: la bitácora evidencia avances, decisiones, dificultades, soluciones, uso de IA y enlace al prototipo. Cumple.
+| Criterio | Cumplo | No cumplo | Evidencia |
+| :--- | :---: | :---: | :--- |
+| **Encargo completo:** interpreto los cinco momentos dentro de un mismo sistema visual. | X | | [Evidencia 1](#papuEvidencia1)|
+| **Simulación con intención:** utilizo al menos tres conceptos de la unidad para comunicar las ideas del encargo. | X | | [Evidencia 2](#papuEvidencia1) [evidencia 3](#papuEvidencia4)|
+| **Interacción significativa:** la interacción modifica el comportamiento o las probabilidades del sistema, que también funciona sin intervención. | X | |[Evidencia 4](#papuEvidencia4)|
+| **Prototipo funcional:** la experiencia puede ejecutarse y recorrerse completa sin errores que impidan comprenderla. | X | | [Evidencia 5](https://editor.p5js.org/alejogonzdav41/sketches/oFFyVwNBA)|
+| **Proceso documentado:** la bitácora evidencia avances, decisiones, dificultades, soluciones, uso de IA y enlace al prototipo. | X | | [Evidencia 6](https://github.com/alejogonzdav41/SimulacionConPapufranco/edit/main/Unidad1.md)|
 
 Nota: 5.0
