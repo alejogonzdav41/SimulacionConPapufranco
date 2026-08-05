@@ -1,5 +1,5 @@
 # Proceso
-
+ 
 La idea que tuve fue la de una cadena alimenticia, donde hay pasto, presa y depredador, por lo que le dí mi idea a gemini y me dió este primer resultado.
 
 <img width="915" height="821" alt="image" src="https://github.com/user-attachments/assets/5f1a1c4a-b838-452a-a5af-5ae6637d7471" />
