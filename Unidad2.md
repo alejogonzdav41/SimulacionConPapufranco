@@ -25,15 +25,15 @@
 
 | **Criterio**                                                                      | **Peso** |    **Valoración**    | **Aporte / Justificación**                                                                                                                                                                                         |
 | --------------------------------------------------------------------------------- | :------: | :------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| La intención es clara y perceptible en el comportamiento.                         |    20%   |       **0/20**      |                       |
-| Los tipos, cantidades, matriz y parámetros están justificados desde la intención. |    25%   |       **0/25**      | |
-| Comprendo y puedo modificar el funcionamiento técnico del sistema.                |    20%   |       **0/20**      |             |
-| El sistema produce variaciones con una identidad reconocible.                     |    15%   |       **0/15**      |                                                                |
-| Experimenté, comparé, seleccioné y descarté con criterios claros.                 |    10%   |       **0/10**      |                                   |
-| Puedo distinguir y sustentar lo diseñado y lo emergente.                          |    10%   |       **0/10**       |                                 |
-| **Total**                                                                         | **100%** | **0/100 (0/5.0)** |                              |
+| La intención es clara y perceptible en el comportamiento.                         |    20%   |       **19/20**      | Siento que la tensión que quería mostrar (cooperación vs. vulnerabilidad) se nota a facilmente. Cuando uno ve la simulación, se entiende que las cebras están tratando de estar juntas y tranquilas, pero que se vuelven locas cuando alguno de los cocodrilos se acerca. Me bajé un poquito porque a veces las cebras se atascan un poquito en los bordes, pero la intención principal es clara. |
+| Los tipos, cantidades, matriz y parámetros están justificados desde la intención. |    25%   |       **25/25**      | Me pongo los puntos completos porque los números puestos tienen su razón de ser así. Entendí por qué las cebras necesitaban ser el grupo mayoritario (para mostrar el efecto de manada) y cómo el +1.0 del depredador justifica los momentos de persecución. Todo tiene una razón de ser basada en la cadena alimenticia. |
+| Comprendo y puedo modificar el funcionamiento técnico del sistema.                |    20%   |       **18/20**      | Logré modificar el código para que las figuras rotaran según su dirección y entendí cómo la fricción frena las partículas. Igual me bajé porque todavía me cuesta un poco la matemática pura detrás de cambiar la visión circular por un "cono de visión". |
+| El sistema produce variaciones con una identidad reconocible.                     |    15%   |       **15/15**      | Gracias al botón de la semilla aleatoria, probé muchísimas veces y el sistema jamás se repite exactamente igual. Sin embargo, al ver la pantalla, se sabe de una que es la sabana viva por cómo se mueven las formas, los colores y las agrupaciones (que ciertamente es evidente por el estilo que tieen) por lo que la identidad es súper fuerte. |
+| Experimenté, comparé, seleccioné y descarté con criterios claros.                 |    10%   |       **10/10**      | Me pongo la nota completa porque hice muchas variantes y regresé varias veces al resultado con el que me sentía más cómodo y de ahí fui por varios caminos. |
+| Puedo distinguir y sustentar lo diseñado y lo emergente.                          |    10%   |       **10/10**       | Sé que yo diseñé las "físicas" del mundo (quién ve a quién, a qué distancia y qué fricción hay), pero que las figuras de "nubes" que forman las cebras o las rutas en zigzag son totalmente emergentes. |
+| **Total**                                                                         | **100%** | **97/100 (4.85/5.0)** |  |
 
-**Nota:** 0
+**Nota:** 4.85
 
 
 # Presentación
