@@ -805,6 +805,14 @@ function windowResized(){
 }
 ```
 
+### Matriz
+
+| **Partícula que reacciona ↓ / Mirando a →** | **Pasto(0)** | **Cebra(1)** | **Cocodrilo(2)** |
+| ------------------- | :-----------: | :---------------: | :--------: |
+| **Pasto(0)**       |    **+0.1**   |      **0.0**      |   **0.0**  |
+| **Cebra(1)**   |    **+0.3**   |      **+0.2**      |   **-0.1**  |
+| **Cocodrilo(2)**          |    **0.0**   |      **+1.0**      |  **-0.5**  |
+
 # Autoevluación  
 
 | **Criterio**                                                                      | **Peso** |    **Valoración**    | **Aporte / Justificación**                                                                                                                                                                                         |
