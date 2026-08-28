@@ -87,3 +87,7 @@ El proyecto está armado usando **Three.js** con WebGPU y TSL para tirar simulac
 | **Criterio frente a la IA** | 10 | Registrar hallazgos y descartes con la IA. | 85 | Bien documentado el cambio de números a letras. |
 | **Entrega técnica** | 5 | URL y bitácora al 100. | 85 | Estructura completa y lista para entregar. |
 | **Total Puntos** | **100** | *Suma final* | **81 / 100** | **Nota final de 80/100 (4)** |
+
+
+
+https://alejogonzdav41.github.io/Unidad3Simulacion-nombrederechosdeautorMiguelValencia-/
