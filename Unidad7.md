@@ -1,3 +1,5 @@
+https://alejogonzdav41.github.io/PaginaRiotGames/
+
 ### 1. Cumplimiento del encargo: 23/25 puntos
 
 Considero que mi proyecto cumple con el encargo porque utiliza las letras de Riot Games para crear una experiencia interactiva en la web. El usuario debe superar cuatro desafíos inspirados en League of Legends, VALORANT, Legends of Runeterra y 2XKO para conseguir las letras R, I, O y T. Cada juego tiene una mecánica diferente y el progreso se puede conservar mientras se navega entre las pantallas. Además, al completar los desafíos se muestra el logo completo.
